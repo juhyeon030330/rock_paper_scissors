@@ -12,21 +12,23 @@ function getComputerChoice() {
 
 
 function playRound(humanChoice, computerChoice) {
+    let resultMessage = "";
 
     if (humanChoice === computerChoice) {
-        return `tie. Both ${humanChoice}.`;
-    } 
-    else if (
+        resultMessage = "It's a tie!";
+    } else if (
         (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
-        return `You win! ${humanChoice} beats ${computerChoice}.`;
-    } 
-    else {
-        return `You lose! ${computerChoice} beats ${humanChoice}.`;
+        resultMessage = "You win!";
+    } else {
+        resultMessage = "Computer wins!";
     }
 
+    return `Human choice: ${humanChoice}
+            Computer choice: ${computerChoice}
+            ${resultMessage}`;
 }
 
 const resultsDiv = document.querySelector("#results");
